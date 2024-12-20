@@ -1,12 +1,10 @@
 const express = require('express');
+const { protect } = require('../middleware/authMiddleware');
+const { getUserProfile, updateUserProfile } = require('../controllers/profileController');
 const router = express.Router();
 
-router.get('/:userId', (req, res) => {
-    res.send(`Get Profile of User ${req.params.userId}`);
-});
-
-router.put('/:userId', (req, res) => {
-    res.send(`Update Profile of User ${req.params.userId}`);
-});
+// Routes for profile management
+router.get('/', protect, getUserProfile);
+router.put('/', protect, updateUserProfile);
 
 module.exports = router;
