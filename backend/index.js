@@ -15,7 +15,11 @@ app.use(bodyParser.json());
 const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const matchRoutes = require('./routes/matchmakingRoutes');
+const matchmakingRoutes = require('./routes/matchmakingRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
 
+app.use('/api/matchmaking', matchmakingRoutes);
+app.use('/api/notifications', notificationRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/match', matchRoutes);
